@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { BusinessException } from 'src/common/exceptions/business.exceptions'
+import { BusinessException } from '@/common/exceptions/business.exception'
 
 
 @Controller('user')
