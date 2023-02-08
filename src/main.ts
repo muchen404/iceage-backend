@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { VersioningType } from '@nestjs/common'
+import { VersioningType, ValidationPipe, VERSION_NEUTRAL } from '@nestjs/common'
 import { TransformInterceptor } from './common/interceptors/transform.interceptor'
 import { AllExceptionsFilter } from './common/exceptions/base.exceptions.filter'
 import { HttpExceptionFilter } from './common/exceptions/http.exceptions.filter'
@@ -14,9 +14,12 @@ async function bootstrap() {
   app.setGlobalPrefix('api')
 
   app.enableVersioning({
-    defaultVersion: '1',
+    defaultVersion: [VERSION_NEUTRAL, '1', '2'],
     type: VersioningType.URI
   })
+
+  // 启动全局字段校验，保证请求接口字段校验正确。
+  app.useGlobalPipes(new ValidationPipe())
 
   generateDocument(app)
 
