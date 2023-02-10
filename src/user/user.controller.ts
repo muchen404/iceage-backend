@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Get, Inject, Logger, LoggerService, Post } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { BusinessException } from '@/common/exceptions/business.exception'
 import { UserService } from './user.service'
@@ -10,7 +10,8 @@ import { AddUserDto } from './user.dto'
 export class UserController {
   constructor(
     private readonly configService: ConfigService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    @Inject(Logger) private readonly logger: LoggerService
   ) {}
 
   @Get()

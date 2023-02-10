@@ -30,11 +30,17 @@
     "cache-manager-redis-store": "^3.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "dayjs": "^1.11.7",
     "mongoose": "^6.9.1",
     "mysql2": "^3.1.1",
+    "nest-winston": "^1.8.0",
+    "pino-multi-stream": "^6.0.0",
     "reflect-metadata": "^0.1.13",
+    "request-ip": "^3.3.0",
     "rxjs": "^7.2.0",
     "typeorm": "^0.3.12",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1",
     "yaml": "^2.2.1"
   },
   "devDependencies": {
